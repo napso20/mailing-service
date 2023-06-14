@@ -5,11 +5,9 @@ from alembic import context
 from sqlalchemy import engine_from_config, pool
 from sqlalchemy import MetaData
 
-from svc.utils.database_utils import create_db_connection_url
-
 # Add the project directory to the Python path
 sys.path.append(os.getcwd())
-
+from svc.utils.database_utils import create_db_connection_url
 from svc.models import Package, PostOffice, PackageStatus
 
 # Create the metadata object and reflect the models
