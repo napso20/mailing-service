@@ -1,0 +1,51 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+dist/
+build/
+eggs/
+*.egg-info/
+
+# Virtual environment
+venv/
+.env/
+
+# Logs
+*.log
+
+# Database
+data/db/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Compiled files
+*.pyc
+
+# Dependency directories
+env/
+
+# Local development configuration
+.env.local
+
+# Docker Compose files
+docker-compose.yml
+docker-compose.override.yml
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Local development environment variables
+.env.local
+.env.dev
+
+# Ignore compiled Python files in migrations
+svc/api/*/migrations/versions/*.pyc
