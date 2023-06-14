@@ -1,6 +1,6 @@
 # Mail Service
 
-The Mail Service is a web application that provides a platform for managing packages and post offices. It allows users to track packages, view post office information, and perform various package-related operations.
+The Mail Service is a application/JSON that provides an API for managing packages and post offices. It allows users to track packages, view post office information, and perform various package-related operations.
 
 ## Features
 
@@ -14,7 +14,7 @@ The Mail Service is a web application that provides a platform for managing pack
 
 ### Prerequisites
 
-- Docker: Ensure that Docker is installed on your machine.
+- Docker: Ensure that Docker and docker-compose are installed on your machine.
 
 ### Setup
 

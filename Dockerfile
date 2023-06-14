@@ -10,6 +10,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
+RUN chmod +x run_migrations.sh
 
 EXPOSE 8080
 
