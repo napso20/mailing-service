@@ -1,0 +1,8 @@
+connexion==2.14.2
+Flask==2.2.5
+Flask-SQLAlchemy==3.0.3
+psycopg2==2.9.6
+psycopg2-binary==2.9.6
+Werkzeug
+alembic==1.11.1
+flask-migrate==4.0.4

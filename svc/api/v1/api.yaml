@@ -1,0 +1,145 @@
+openapi: 3.0.2
+info:
+  title: Mailing Service API
+  version: 1.0.0
+paths:
+  /postoffice:
+    post:
+      summary: Register a new post office
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOffice'
+      responses:
+        '200':
+          description: Post office registered successfully
+  /postoffice/{id}:
+    get:
+      summary: Get details of a post office
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Post office details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOffice'
+  /package:
+    post:
+      summary: Register a package
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Package'
+      responses:
+        '200':
+          description: Package registered successfully
+  /package/{id}:
+    get:
+      summary: Get package status history
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Package status history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PackageStatusHistory'
+  /postoffice/{id}/arrival:
+    post:
+      summary: Record arrival to post office
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Arrival'
+      responses:
+        '200':
+          description: Arrival recorded successfully
+  /postoffice/{id}/departure:
+    post:
+      summary: Record departure from post office
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Departure'
+      responses:
+        '200':
+          description: Departure recorded successfully
+components:
+  schemas:
+    PostOffice:
+      type: object
+      properties:
+        address:
+          type: string
+        zip_code:
+          type: string
+        name:
+          type: string
+    Package:
+      type: object
+      properties:
+        destination_address:
+          type: string
+        destination_zip_code:
+          type: string
+        recipient_name:
+          type: string
+        id:
+          type: string
+        type:
+          type: string
+    PackageStatusHistory:
+      type: object
+      properties:
+        id:
+          type: string
+        history:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+              timestamp:
+                type: string
+    Arrival:
+      type: object
+      properties:
+        package_id:
+          type: string
+    Departure:
+      type: object
+      properties:
+        package_id:
+          type: string

@@ -1,0 +1,38 @@
+version: '3'
+services:
+  mailing-service-db:
+    container_name: mailing-service-db
+    hostname: mailing-service-db
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mail-service-db
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - public
+
+  app:
+    container_name: mailing-service
+    hostname: mailing-service
+    build: .
+    environment:
+      - PGHOST=mailing-service-db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mail-service-db
+    volumes:
+      - ".:/app"
+    ports:
+      - 8080:8080
+    networks:
+      - public
+    depends_on:
+      - mailing-service-db
+#    command: ["--network-alias=mailing-service"]
+
+networks:
+  public:
