@@ -38,10 +38,10 @@ The application can be configured through environment variables. Create a .env f
 - Database configuration:
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=password
-POSTGRES_DB=mail-service-db
+POSTGRES_DB=mailing-service-db
 
 - Application configuration:
-DATABASE_URL=postgresql://postgres:password@mailing-service-db:5432/mail-service-db
+DATABASE_URL=postgresql://postgres:password@mailing-service-db:5432/mailing-service-db
 
 ### Development
 To contribute to the Mail Service project, follow these steps:

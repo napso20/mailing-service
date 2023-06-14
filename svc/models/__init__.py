@@ -1,12 +1,9 @@
-import os
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from ..utils.database_utils import create_db_connection_url
 
-
-db_username = os.environ.get('POSTGRES_USER')
-db_password = os.environ.get('POSTGRES_PASSWORD')
-db_name = os.environ.get('POSTGRES_DB')
-engine = create_engine(f'postgresql://{db_username}:{db_password}@localhost:5432/{db_name}')
+db_connection_url = create_db_connection_url()
+engine = create_engine(db_connection_url)
 Session = sessionmaker(bind=engine)
 
 # Import the model classes

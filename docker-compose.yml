@@ -7,7 +7,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=mail-service-db
+      - POSTGRES_DB=mailing-service-db
     volumes:
       - ./data/db:/var/lib/postgresql/data
     ports:
@@ -23,7 +23,7 @@ services:
       - PGHOST=mailing-service-db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=mail-service-db
+      - POSTGRES_DB=mailing-service-db
     volumes:
       - ".:/app"
     ports:
@@ -32,7 +32,6 @@ services:
       - public
     depends_on:
       - mailing-service-db
-#    command: ["--network-alias=mailing-service"]
 
 networks:
   public:

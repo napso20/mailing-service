@@ -1,10 +1,11 @@
 import os
-# import socket
 import sys
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 from sqlalchemy import MetaData
+
+from svc.utils.database_utils import create_db_connection_url
 
 # Add the project directory to the Python path
 sys.path.append(os.getcwd())
@@ -17,12 +18,8 @@ target_metadata = MetaData()
 # Alembic ini Config object
 config = context.config
 
-db_username = os.environ.get('POSTGRES_USER')
-db_password = os.environ.get('POSTGRES_PASSWORD')
-db_name = os.environ.get('POSTGRES_DB')
-db_connection_url = f'postgresql://{db_username}:{db_password}@mail-service-db:5432/{db_name}'
+db_connection_url = create_db_connection_url()
 print(f'....------ db_connection_url = {db_connection_url}')
-# db_connection_url = "postgresql://postgres:password@" + socket.gethostbyname("mail-service-db") + "/mail-service-db"
 
 # Set up the database connection
 config.set_main_option('sqlalchemy.url', db_connection_url)
