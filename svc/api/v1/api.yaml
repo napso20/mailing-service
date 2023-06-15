@@ -2,8 +2,9 @@ openapi: 3.0.2
 info:
   title: Mailing Service API
   version: 1.0.0
+
 paths:
-  /postoffice:
+  /api/postoffice:
     post:
       summary: Register a new post office
       requestBody:
@@ -15,7 +16,7 @@ paths:
       responses:
         '200':
           description: Post office registered successfully
-  /postoffice/{id}:
+  /api/postoffice/{id}:
     get:
       summary: Get details of a post office
       parameters:
@@ -31,7 +32,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PostOffice'
-  /package:
+  /api/package:
     post:
       summary: Register a package
       requestBody:
@@ -43,7 +44,7 @@ paths:
       responses:
         '200':
           description: Package registered successfully
-  /package/{id}:
+  /api/package/{id}:
     get:
       summary: Get package status history
       parameters:
@@ -59,7 +60,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PackageStatusHistory'
-  /postoffice/{id}/arrival:
+  /api/postoffice/{id}/arrival:
     post:
       summary: Record arrival to post office
       parameters:
@@ -77,7 +78,7 @@ paths:
       responses:
         '200':
           description: Arrival recorded successfully
-  /postoffice/{id}/departure:
+  /api/postoffice/{id}/departure:
     post:
       summary: Record departure from post office
       parameters:

@@ -52,6 +52,15 @@ To contribute to the Mail Service project, follow these steps:
 - Make the necessary changes and commit them.
 - Push the changes to your forked repository.
 - Submit a pull request to the main repository.
+
+## Dev API Testing Examples
+- curl -X POST -H "Content-Type: application/json" -d '{"address": "123 Main St", "zip_code": "12345", "name": "Post Office 1"}' http://localhost/api/postoffice
+- curl -X GET http://localhost/api/postoffice/{id}
+- curl -X POST -H "Content-Type: application/json" -d '{"destination_address": "456 Elm St", "destination_zip_code": "67890", "recipient_name": "John Doe", "id": "abc123", "type": "letter"}' http://localhost/api/package
+- curl -X GET http://localhost/api/package/{id}
+- curl -X POST -H "Content-Type: application/json" -d '{"package_id": "abc123"}' http://localhost/api/postoffice/{id}/arrival
+- curl -X POST -H "Content-Type: application/json" -d '{"package_id": "abc123"}' http://localhost/api/postoffice/{id}/departure
+
 ## Supported OS
 - Linux based OS
 - WSL in NOT supported!

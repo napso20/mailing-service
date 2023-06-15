@@ -10,7 +10,7 @@ post_office_dao = PostOfficeDAO()
 package_status_dao = PackageStatusDAO()
 
 
-@app.route('/postoffice', methods=['POST'])
+@app.route('/api/v1/postoffice', methods=['POST'])
 def register_post_office():
     try:
         data = request.get_json()
@@ -21,7 +21,7 @@ def register_post_office():
         return jsonify(message='Error registering post office', error=str(e)), 500
 
 
-@app.route('/postoffice/<int:id>', methods=['GET'])
+@app.route('/api/v1/postoffice/<string:id>', methods=['GET'])
 def get_post_office(id):
     try:
         post_office = post_office_dao.get(id)
@@ -33,7 +33,7 @@ def get_post_office(id):
         return jsonify(message='Error retrieving post office', error=str(e)), 500
 
 
-@app.route('/package', methods=['POST'])
+@app.route('/api/v1/package', methods=['POST'])
 def register_package():
     try:
         data = request.get_json()
@@ -44,7 +44,7 @@ def register_package():
         return jsonify(message='Error registering package', error=str(e)), 500
 
 
-@app.route('/package/<int:id>', methods=['GET'])
+@app.route('/api/v1/package/<string:id>', methods=['GET'])
 def get_package_status_history(id):
     try:
         package = package_dao.get(id)
@@ -57,7 +57,7 @@ def get_package_status_history(id):
         return jsonify(message='Error retrieving package status history', error=str(e)), 500
 
 
-@app.route('/postoffice/<int:id>/arrival', methods=['POST'])
+@app.route('/api/v1/postoffice/<string:id>/arrival', methods=['POST'])
 def record_arrival(id):
     try:
         data = request.get_json()
@@ -75,7 +75,7 @@ def record_arrival(id):
         return jsonify(message='Error recording arrival', error=str(e)), 500
 
 
-@app.route('/postoffice/<int:id>/departure', methods=['POST'])
+@app.route('/api/v1/postoffice/<string:id>/departure', methods=['POST'])
 def record_departure(id):
     try:
         data = request.get_json()
