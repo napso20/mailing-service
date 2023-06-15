@@ -1,6 +1,6 @@
 # Mail Service
 
-The Mail Service is a application/JSON that provides an API for managing packages and post offices. It allows users to track packages, view post office information, and perform various package-related operations.
+The Mail Service is a webservice that provides an API for managing packages and post offices. It allows users to track packages, view post office information, and perform various package-related operations.
 
 ## Features
 
@@ -52,6 +52,9 @@ To contribute to the Mail Service project, follow these steps:
 - Make the necessary changes and commit them.
 - Push the changes to your forked repository.
 - Submit a pull request to the main repository.
+## Supported OS
+- Linux based OS
+- WSL in NOT supported!
 
 ### License
 This project is licensed under the MIT License. See the LICENSE file for more details.

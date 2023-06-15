@@ -7,6 +7,6 @@ class PostOfficeDAO:
             session.add(post_office)
             session.commit()
 
-    def get(self, id):
+    def get(self, post_office_id):
         with Session() as session:
-            return session.query(PostOffice).get(id)
+            return session.query(PostOffice).get(post_office_id)

@@ -7,6 +7,6 @@ class PackageDAO:
             session.add(package)
             session.commit()
 
-    def get(self, id):
+    def get(self, package_id):
         with Session() as session:
-            return session.query(Package).get(id)
+            return session.query(Package).get(package_id)
